@@ -84,7 +84,7 @@ function TerminalPrompt() {
   );
 }
 
-export default function Hero() {
+export default function Hero({ onNavigateToProjects = () => { } }) {
   const [theme, setTheme] = useState("dark");
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -546,7 +546,13 @@ export default function Hero() {
           <ul className="nav-links">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
-                <a href={link.href}>{link.label}</a>
+                {link.label === "Projects" ? (
+                  <a onClick={onNavigateToProjects} style={{ cursor: "pointer" }}>
+                    {link.label}
+                  </a>
+                ) : (
+                  <a href={link.href}>{link.label}</a>
+                )}
               </li>
             ))}
           </ul>
@@ -583,7 +589,17 @@ export default function Hero() {
       {mobileOpen && (
         <nav className="mobile-menu">
           {NAV_LINKS.map((link) => (
-            <a key={link.label} href={link.href} onClick={handleNavClick}>
+            <a
+              key={link.label}
+              onClick={() => {
+                if (link.label === "Projects") {
+                  onNavigateToProjects();
+                }
+                handleNavClick();
+              }}
+              style={{ cursor: link.label === "Projects" ? "pointer" : "auto" }}
+              href={link.label !== "Projects" ? link.href : undefined}
+            >
               {link.label}
             </a>
           ))}
@@ -621,9 +637,13 @@ export default function Hero() {
               <a className="btn btn-outline" href="/Resume.pdf" download="Resume.pdf">
                 <FileText size={17} /> Download Resume
               </a>
-              <a className="btn btn-outline" href="#projects">
+              <button
+                className="btn btn-outline"
+                onClick={onNavigateToProjects}
+                style={{ border: "inherit", cursor: "pointer" }}
+              >
                 <FolderGit2 size={17} /> See Projects
-              </a>
+              </button>
               <a className="btn btn-ghost" href="#contact">
                 Contact Me <ArrowRight size={16} />
               </a>
@@ -661,6 +681,8 @@ export default function Hero() {
           </div>
         </main>
       </div>
+
+
     </div>
   );
 }

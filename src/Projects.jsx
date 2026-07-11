@@ -28,7 +28,11 @@ The Log Monitoring Dashboard provides a centralized interface to view system log
             "Responsive web interface for log visualization",
         ],
         // Add screenshot/video URLs here
-        screenshot: "",
+        screenshots: [
+            "/devops1.png",
+            "/devops2.png",
+
+        ],
         videoUrl: "",
     },
     {
@@ -79,17 +83,23 @@ The app automatically reads FBR-Value-Karachi-2022.xlsx and parses category rate
     {
         title: "Battleship",
         summary: "A classic strategy game recreated with a clean interface and polished gameplay logic.",
-        stack: ["JavaScript", "React", "Game Logic"],
+        stack: ["C++", "Game Logic"],
         repo: "https://github.com/hamziAli/Battleship",
         demo: "https://github.com/hamziAli/Battleship",
-        description: "A fully playable Battleship game with intuitive UI, AI opponent, and strategic gameplay mechanics.",
+        description: "A fully playable Battleship game with intuitive Terminal based UI, AI opponent, and strategic gameplay mechanics.",
         features: [
             "Interactive game board and ship placement",
             "AI opponent with strategic logic",
             "Turn-based gameplay",
             "Win/loss tracking",
         ],
-        screenshot: "",
+        screenshots: [
+            "/battleship1.png",
+            "/battleship2.png",
+            "/battleship3.png",
+            "/battleship4.png",
+
+        ],
         videoUrl: "",
     },
     {
